@@ -104,9 +104,7 @@ Run Locally
 No dependencies or build steps required.
 
 git clone https://github.com/mohammedmuneebhere-debug/nutri-event
-cd fitline-event
-
-
+cd nutri-event
 Open index.html directly in your browser.
 
 🔒 Security Disclaimer
