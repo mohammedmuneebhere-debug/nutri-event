@@ -65,15 +65,9 @@
                     Nutriwelike's <strong>Optimal Set</strong> provides the ideal foundation for cellular health. Using our patented <strong>NTC (Nutrient Transport Concept)</strong>, nutrients are delivered exactly when and where they are needed—at the cellular level.
                 </p>
                 <ul class="space-y-6 text-lg text-[#4b5563]">
-                    <li class="flex items-center gap-3">
-                        <span>✨</span> <strong>Basics:</strong> Optimization of immunity and digestion.
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <span>⚡</span> <strong>Activize:</strong> Higher energy levels and concentration.
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <span>🌙</span> <strong>Restorate:</strong> Faster recovery and better sleep.
-                    </li>
+                    <li class="flex items-center gap-3">✨ <strong>Basics:</strong> Optimization of immunity and digestion.</li>
+                    <li class="flex items-center gap-3">⚡ <strong>Activize:</strong> Higher energy levels and concentration.</li>
+                    <li class="flex items-center gap-3">🌙 <strong>Restorate:</strong> Faster recovery and better sleep.</li>
                 </ul>
             </div>
         </section>
@@ -109,23 +103,23 @@
             </div>
             <div class="md:w-2/3 p-8 md:p-12">
                 <form id="regForm" class="space-y-5">
-                    <input type="text" id="regName" required placeholder="Full Name" class="w-full p-4 bg-gray-50 border-none rounded-xl focus:ring-2 ring-pink-500 outline-none transition">
-                    <input type="email" id="regEmail" required placeholder="Gmail Address" class="w-full p-4 bg-gray-50 border-none rounded-xl focus:ring-2 ring-pink-500 outline-none transition">
-                    <input type="tel" id="regPhone" required placeholder="WhatsApp No." class="w-full p-4 bg-gray-50 border-none rounded-xl focus:ring-2 ring-pink-500 outline-none transition">
-                    <select id="sourceSelect" onchange="toggleReferralField()" class="w-full p-4 bg-gray-50 border-none rounded-xl focus:ring-2 ring-pink-500 outline-none transition">
+                    <input type="text" id="regName" required placeholder="Full Name" class="w-full p-4 bg-gray-50 border-none rounded-xl focus:ring-2 ring-pink-500 outline-none">
+                    <input type="email" id="regEmail" required placeholder="Gmail Address" class="w-full p-4 bg-gray-50 border-none rounded-xl focus:ring-2 ring-pink-500 outline-none">
+                    <input type="tel" id="regPhone" required placeholder="WhatsApp No." class="w-full p-4 bg-gray-50 border-none rounded-xl focus:ring-2 ring-pink-500 outline-none">
+                    <select id="sourceSelect" onchange="toggleReferralField()" class="w-full p-4 bg-gray-50 border-none rounded-xl focus:ring-2 ring-pink-500 outline-none">
                         <option value="Social">Social Media</option>
                         <option value="Referral">I have a Referral Code</option>
                     </select>
                     <div id="referralField" class="hidden">
-                        <input type="text" id="regCode" placeholder="Enter Code" class="w-full p-4 border-2 border-dashed border-pink-300 rounded-xl bg-pink-50 outline-none uppercase font-bold text-center transition">
+                        <input type="text" id="regCode" placeholder="Enter Code" class="w-full p-4 border-2 border-dashed border-pink-300 rounded-xl bg-pink-50 outline-none uppercase font-bold text-center">
                     </div>
-                    <button type="submit" class="w-full bg-black text-white py-5 rounded-xl font-bold text-lg hover:brand-pink transition shadow-xl">Confirm & Generate Ticket</button>
+                    <button type="submit" id="submitBtn" class="w-full bg-black text-white py-5 rounded-xl font-bold text-lg hover:brand-pink transition shadow-xl">Confirm & Generate Ticket</button>
                 </form>
             </div>
         </div>
     </div>
 
-    <!-- TICKET VIEW -->
+    <!-- PAGE 3: TICKET VIEW -->
     <div id="page-ticket" class="hidden min-h-screen pt-28 pb-10 px-6 flex flex-col items-center bg-gray-100">
         <div class="text-center mb-6">
             <h2 class="text-2xl font-bold text-green-600 mb-1">Registration Successful!</h2>
@@ -145,41 +139,28 @@
                 </div>
 
                 <div class="grid grid-cols-2 gap-6 mb-8">
-                    <div>
-                        <p class="text-[10px] text-gray-400 uppercase font-bold tracking-widest mb-1">Event Date</p>
-                        <p class="font-bold text-gray-800">Jan 11, 2026</p>
-                    </div>
-                    <div>
-                        <p class="text-[10px] text-gray-400 uppercase font-bold tracking-widest mb-1">Start Time</p>
-                        <p class="font-bold text-gray-800">2:00 PM</p>
-                    </div>
+                    <div><p class="text-[10px] text-gray-400 uppercase font-bold tracking-widest mb-1">Event Date</p><p class="font-bold text-gray-800">Jan 11, 2026</p></div>
+                    <div><p class="text-[10px] text-gray-400 uppercase font-bold tracking-widest mb-1">Start Time</p><p class="font-bold text-gray-800">2:00 PM</p></div>
                 </div>
 
-                <div>
-                    <p class="text-[10px] text-gray-400 uppercase font-bold tracking-widest mb-1">Venue</p>
-                    <p class="font-bold text-gray-800 leading-tight">Day2Dream Club, Hyderabad</p>
-                </div>
+                <div><p class="text-[10px] text-gray-400 uppercase font-bold tracking-widest mb-1">Venue</p><p class="font-bold text-gray-800 leading-tight">Day2Dream Club, Hyderabad</p></div>
             </div>
 
-            <div class="ticket-cutout cut-left"></div>
-            <div class="ticket-cutout cut-right"></div>
-            <div class="ticket-line"></div>
+            <div class="ticket-cutout cut-left"></div><div class="ticket-cutout cut-right"></div><div class="ticket-line"></div>
 
             <div class="p-10 pt-12 bg-gray-50 text-center">
                 <p class="text-[10px] text-gray-400 uppercase font-bold tracking-widest mb-2">Unique Ticket ID</p>
                 <p id="tix-id" class="text-xl font-mono font-black text-gray-900">FL-2026-XXXX</p>
-                <p class="text-[9px] text-gray-400 mt-6 italic">Show this pass at the entrance for verification.</p>
             </div>
         </div>
-
         <button onclick="location.reload()" class="mt-10 text-gray-400 text-sm hover:underline">← Return to Home</button>
     </div>
 
-    <!-- ADMIN -->
+    <!-- ADMIN PANEL -->
     <div id="page-admin" class="hidden pt-32 pb-20 px-6 min-h-screen bg-white">
         <div class="max-w-6xl mx-auto">
             <div class="flex justify-between items-center mb-10">
-                <h2 class="text-3xl serif">Attendee Management</h2>
+                <h2 class="text-3xl serif">Live Registrations</h2>
                 <div class="flex gap-2">
                     <button onclick="exportToCSV()" class="bg-gray-100 px-4 py-2 rounded text-xs font-bold hover:bg-gray-200">Export CSV</button>
                     <button onclick="location.reload()" class="bg-red-500 text-white px-5 py-2 rounded-full text-xs font-bold">Logout</button>
@@ -194,8 +175,7 @@
                                 <th class="p-5 font-bold text-xs uppercase text-gray-400">Name</th>
                                 <th class="p-5 font-bold text-xs uppercase text-gray-400">Gmail</th>
                                 <th class="p-5 font-bold text-xs uppercase text-gray-400">WhatsApp</th>
-                                <th class="p-5 font-bold text-xs uppercase text-gray-400">Referral</th>
-                                <th class="p-5 font-bold text-xs uppercase text-gray-400 text-right">Delete</th>
+                                <th class="p-5 font-bold text-xs uppercase text-gray-400 text-right">Action</th>
                             </tr>
                         </thead>
                         <tbody id="adminTableBody" class="divide-y divide-gray-100"></tbody>
@@ -205,88 +185,123 @@
         </div>
     </div>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({ duration: 800, once: true });
-        const ADMIN_PASS = "NutriSecure@2026!";
-        const VALID_CODES = { "ALI-ZUB": "Ali Zubair", "ASH-ALI": "Ashfaq Ali" };
+    <!-- FIREBASE SYSTEM -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, query, orderBy } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-        function showPage(pageId) {
+        // YOUR ACTUAL FIREBASE CONFIG
+        const firebaseConfig = {
+            apiKey: "AIzaSyA4zE5pPPrlaXJG4WvjFm6551UikYZXX0o",
+            authDomain: "fitlineevent.firebaseapp.com",
+            projectId: "fitlineevent",
+            storageBucket: "fitlineevent.firebasestorage.app",
+            messagingSenderId: "541401334814",
+            appId: "1:541401334814:web:4d021a4123fccc95479a0f",
+            measurementId: "G-K9VYREBPE9"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // Global Page Nav
+        window.showPage = (pageId) => {
             ['home', 'register', 'admin', 'ticket'].forEach(p => document.getElementById('page-' + p).classList.add('hidden'));
             document.getElementById('page-' + pageId).classList.remove('hidden');
             window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+        };
 
-        function toggleReferralField() {
+        window.toggleReferralField = () => {
             const select = document.getElementById('sourceSelect');
             document.getElementById('referralField').classList.toggle('hidden', select.value !== 'Referral');
-        }
+        };
 
-        document.getElementById('regForm').onsubmit = function(e) {
+        // Submit Form to Firestore
+        document.getElementById('regForm').onsubmit = async function(e) {
             e.preventDefault();
+            const submitBtn = document.getElementById('submitBtn');
+            submitBtn.innerText = "Generating Pass...";
+            submitBtn.disabled = true;
+
             const name = document.getElementById('regName').value;
             const email = document.getElementById('regEmail').value;
             const phone = document.getElementById('regPhone').value;
             const source = document.getElementById('sourceSelect').value;
             let code = document.getElementById('regCode').value.toUpperCase().trim();
-
-            if (source === 'Referral' && !VALID_CODES[code]) {
-                alert("Please enter a valid Referral Code.");
-                return;
-            }
-
-            const attendees = JSON.parse(localStorage.getItem('fitline_rsvp') || "[]");
-            // Generate ID
             const tixID = "FL-" + Math.floor(1000 + Math.random() * 9000);
-            // Save ID in the record
-            attendees.push({ tixID, name, email, phone, source, code: code || 'N/A' });
-            localStorage.setItem('fitline_rsvp', JSON.stringify(attendees));
 
-            document.getElementById('tix-name').innerText = name;
-            document.getElementById('tix-id').innerText = tixID;
-            
-            showPage('ticket');
+            try {
+                await addDoc(collection(db, "attendees"), {
+                    tixID, name, email, phone, source, code: code || 'N/A', timestamp: new Date()
+                });
+
+                document.getElementById('tix-name').innerText = name;
+                document.getElementById('tix-id').innerText = tixID;
+                showPage('ticket');
+            } catch (err) {
+                alert("Connection error. Try again.");
+                submitBtn.innerText = "Try Again";
+                submitBtn.disabled = false;
+            }
         };
 
-        function loginAdmin() {
-            if (prompt("Admin Access Code:") === ADMIN_PASS) {
+        // Admin Table
+        window.loginAdmin = async () => {
+            if (prompt("Admin Access Code:") === "NutriSecure@2026!") {
                 showPage('admin');
                 renderAdminTable();
             }
-        }
+        };
 
-        function renderAdminTable() {
-            const attendees = JSON.parse(localStorage.getItem('fitline_rsvp') || "[]");
+        window.renderAdminTable = async () => {
             const body = document.getElementById('adminTableBody');
-            body.innerHTML = attendees.length ? attendees.reverse().map((a, i) => `
-                <tr class="hover:bg-gray-50 transition">
-                    <td class="p-5 font-mono text-xs font-bold text-brand-pink">${a.tixID}</td>
-                    <td class="p-5 font-bold text-gray-900">${a.name}</td>
-                    <td class="p-5 text-sm text-gray-500">${a.email}</td>
-                    <td class="p-5 text-sm text-gray-500">${a.phone}</td>
-                    <td class="p-5 font-mono text-xs text-gray-400 font-bold">${a.code}</td>
-                    <td class="p-5 text-right"><button onclick="deleteEntry(${i})" class="text-red-200 hover:text-red-500 transition text-xl">×</button></td>
-                </tr>
-            `).join('') : `<tr><td colspan="6" class="p-10 text-center text-gray-300 italic">No registrations found.</td></tr>`;
-        }
+            body.innerHTML = '<tr><td colspan="5" class="p-10 text-center">Loading live data...</td></tr>';
+            
+            try {
+                const q = query(collection(db, "attendees"), orderBy("timestamp", "desc"));
+                const querySnapshot = await getDocs(q);
+                let rows = "";
+                querySnapshot.forEach((document) => {
+                    const a = document.data();
+                    rows += `
+                        <tr class="hover:bg-gray-50 transition">
+                            <td class="p-5 font-mono text-xs font-bold text-pink-500">${a.tixID}</td>
+                            <td class="p-5 font-bold text-gray-900">${a.name}</td>
+                            <td class="p-5 text-sm text-gray-500">${a.email}</td>
+                            <td class="p-5 text-sm text-gray-500">${a.phone}</td>
+                            <td class="p-5 text-right">
+                                <button onclick="deleteAttendee('${document.id}')" class="text-red-200 hover:text-red-500 transition text-xl">×</button>
+                            </td>
+                        </tr>`;
+                });
+                body.innerHTML = rows || '<tr><td colspan="5" class="p-10 text-center">No registrations yet.</td></tr>';
+            } catch (e) {
+                body.innerHTML = '<tr><td colspan="5" class="p-10 text-center text-red-500">Error loading database.</td></tr>';
+            }
+        };
 
-        function deleteEntry(i) {
-            const attendees = JSON.parse(localStorage.getItem('fitline_rsvp') || "[]");
-            attendees.reverse().splice(i, 1);
-            localStorage.setItem('fitline_rsvp', JSON.stringify(attendees.reverse()));
-            renderAdminTable();
-        }
+        window.deleteAttendee = async (id) => {
+            if(confirm("Permanently delete guest?")) {
+                await deleteDoc(doc(db, "attendees", id));
+                renderAdminTable();
+            }
+        };
 
-        function exportToCSV() {
-            const attendees = JSON.parse(localStorage.getItem('fitline_rsvp') || "[]");
-            if(attendees.length === 0) return alert("No data to export");
-            let csv = "ID,Name,Email,Phone,Source,Code\n" + 
-                attendees.map(a => `${a.tixID},${a.name},${a.email},${a.phone},${a.source},${a.code}`).join("\n");
+        window.exportToCSV = async () => {
+            const q = query(collection(db, "attendees"), orderBy("timestamp", "desc"));
+            const querySnapshot = await getDocs(q);
+            let csv = "ID,Name,Email,Phone,Code\n";
+            querySnapshot.forEach(doc => {
+                const a = doc.data();
+                csv += `${a.tixID},${a.name},${a.email},${a.phone},${a.code}\n`;
+            });
             const blob = new Blob([csv], { type: 'text/csv' });
             const url = window.URL.createObjectURL(blob);
             const a = document.createElement('a');
-            a.href = url; a.download = 'FitLine_Attendees.csv'; a.click();
-        }
+            a.href = url; a.download = 'FitLine_Attendee_List.csv'; a.click();
+        };
     </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init({ duration: 800, once: true });</script>
 </body>
 </html>
