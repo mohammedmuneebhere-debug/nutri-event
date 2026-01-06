@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,14 +10,19 @@
     <style>
         body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
         .serif { font-family: 'Playfair Display', serif; }
-        .brand-pink { background: linear-gradient(135deg, #e9487d 0%, #c026d3 100%); }
-        .bg-brand-pink { background-color: #e9487d; }
+        .brand-pink { background: #e9487d; } 
         .text-brand-pink { color: #e9487d; }
-        .hover-lift { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-        .hover-lift:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgba(233, 72, 125, 0.2); }
-        /* Glass Navbar Fix */
         .glass-nav { backdrop-filter: blur(12px); background: rgba(255, 255, 255, 0.9); z-index: 100; }
         .hero-gradient { background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); }
+        
+        /* Ticket Styling */
+        .ticket-card { background: #fff; border-radius: 20px; overflow: hidden; position: relative; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .ticket-cutout { position: absolute; width: 30px; height: 30px; background: #f3f4f6; border-radius: 50%; top: 65%; }
+        .cut-left { left: -15px; } .cut-right { right: -15px; }
+        .ticket-line { position: absolute; top: 67%; left: 5%; right: 5%; border-top: 2px dashed #e5e7eb; }
+
+        /* Science of Vitality accent bar */
+        .title-accent { border-left: 4px solid #e5e7eb; padding-left: 24px; }
     </style>
 </head>
 <body class="bg-white text-gray-800">
@@ -26,158 +30,177 @@
     <!-- NAVIGATION -->
     <nav class="fixed top-0 w-full glass-nav border-b px-6 py-4 flex justify-between items-center shadow-sm">
         <div class="flex items-center gap-2 group cursor-pointer" onclick="showPage('home')">
-            <div class="w-10 h-10 bg-brand-pink rounded-xl flex items-center justify-center text-white font-bold transition-transform group-hover:rotate-12 shadow-lg">F</div>
+            <div class="w-10 h-10 brand-pink rounded-xl flex items-center justify-center text-white font-bold shadow-lg">F</div>
             <span class="text-xl font-bold serif tracking-tight">FitLine <span class="text-brand-pink">Event</span></span>
         </div>
         <div class="flex gap-4 items-center font-semibold text-sm">
-            <button onclick="showPage('home')" class="hover:text-brand-pink transition hidden md:block">About</button>
-            <button onclick="showPage('register')" class="bg-brand-pink text-white px-6 py-2.5 rounded-full hover:scale-105 transition shadow-md active:scale-95">RSVP Now</button>
-            <button onclick="loginAdmin()" class="p-2 opacity-40 hover:opacity-100 transition ml-2">
+            <button onclick="showPage('home')" class="hover:text-brand-pink transition">About</button>
+            <button onclick="showPage('register')" class="brand-pink text-white px-6 py-2.5 rounded-full hover:scale-105 transition shadow-md">RSVP Now</button>
+            <button onclick="loginAdmin()" class="p-2 opacity-40 hover:opacity-100 transition">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
             </button>
         </div>
     </nav>
 
     <!-- PAGE 1: HOME -->
-    <div id="page-home" class="page-transition">
-        <!-- Hero Section: Adjusted padding-top (pt-32) to prevent taskbar/nav overlap -->
-        <header class="relative h-[90vh] flex items-center justify-center text-center text-white overflow-hidden pt-20">
+    <div id="page-home">
+        <header class="relative h-[85vh] flex items-center justify-center text-center text-white overflow-hidden pt-20">
             <div class="absolute inset-0 hero-gradient z-10"></div>
             <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=1600" class="absolute inset-0 w-full h-full object-cover">
-            
-            <!-- Content with extra top margin to avoid overlap -->
-            <div class="relative z-20 px-4 mt-20" data-aos="fade-up" data-aos-duration="1000">
+            <div class="relative z-20 px-4 mt-20" data-aos="fade-up">
                 <span class="uppercase tracking-[0.3em] text-xs md:text-sm mb-4 block font-semibold text-pink-300">Hyderabad • Jan 11, 2026</span>
                 <h1 class="text-5xl md:text-8xl serif mb-6 leading-tight">A Journey to <br><span class="italic text-pink-200">Wellness</span></h1>
                 <p class="text-lg md:text-xl opacity-90 max-w-2xl mx-auto font-light mb-8">Experience the future of cellular nutrition and unlock your body's full potential.</p>
-                <button onclick="showPage('register')" class="bg-white text-black px-10 py-4 rounded-full font-bold hover:bg-brand-pink hover:text-white transition-all duration-300 shadow-2xl">Reserve My Spot</button>
+                <button onclick="showPage('register')" class="bg-white text-black px-10 py-4 rounded-full font-bold hover:brand-pink hover:text-white transition-all shadow-2xl">Reserve My Spot</button>
             </div>
         </header>
 
-        <!-- Dynamic Counter Banner -->
-        <div class="max-w-5xl mx-auto -mt-12 relative z-30 px-6">
-            <div class="bg-white border border-gray-100 p-6 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-4 shadow-2xl" data-aos="zoom-in">
-                <div class="flex items-center gap-4 text-center md:text-left">
-                    <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center text-2xl">🔥</div>
-                    <div>
-                        <h4 class="font-bold text-gray-900 leading-tight">Strictly Limited Seats!</h4>
-                        <p class="text-gray-500 text-sm">Only <span id="seat-count" class="text-brand-pink font-bold">12</span> spots remaining for this session.</p>
-                    </div>
-                </div>
-                <div class="flex items-center gap-4">
-                     <div class="flex -space-x-3">
-                        <img class="w-10 h-10 rounded-full border-2 border-white" src="https://i.pravatar.cc/100?u=1">
-                        <img class="w-10 h-10 rounded-full border-2 border-white" src="https://i.pravatar.cc/100?u=2">
-                        <img class="w-10 h-10 rounded-full border-2 border-white bg-gray-200 flex items-center justify-center text-xs font-bold">+42</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Science & Details -->
-        <section class="max-w-6xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-16 items-center">
+        <!-- SECTION: THE SCIENCE OF VITALITY -->
+        <section class="max-w-5xl mx-auto px-6 py-24">
             <div data-aos="fade-right">
-                <h2 class="text-4xl serif mb-8 border-l-8 border-brand-pink pl-6 italic">The Science of Vitality</h2>
-                <p class="text-gray-600 leading-relaxed text-lg mb-8">
-                    FitLine’s <strong>Optimal Set</strong> isn't just a supplement. Using patented <strong>NTC®</strong> technology, we deliver nutrients exactly where they are needed—at the cellular level.
+                <div class="title-accent mb-8">
+                    <h2 class="text-5xl serif text-[#1f2937]">The Science of Vitality</h2>
+                </div>
+                <p class="text-[#4b5563] leading-relaxed text-xl mb-10 max-w-4xl">
+                    Nutriwelike's <strong>Optimal Set</strong> provides the ideal foundation for cellular health. Using our patented <strong>NTC (Nutrient Transport Concept)</strong>, nutrients are delivered exactly when and where they are needed—at the cellular level.
                 </p>
-                <div class="space-y-4">
-                    <div class="flex gap-4 p-4 rounded-xl bg-gray-50 border border-transparent hover:border-pink-200 transition">
-                        <span class="text-2xl">⚡</span>
-                        <div><h4 class="font-bold">Cellular Energy</h4><p class="text-sm text-gray-500">Immediate energy and mental clarity via Activize.</p></div>
-                    </div>
-                    <div class="flex gap-4 p-4 rounded-xl bg-gray-50 border border-transparent hover:border-pink-200 transition">
-                        <span class="text-2xl">🌙</span>
-                        <div><h4 class="font-bold">Deep Recovery</h4><p class="text-sm text-gray-500">Mineral replenishment for superior sleep quality.</p></div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Event Card -->
-            <div class="relative" data-aos="fade-left">
-                <div class="absolute -inset-4 bg-brand-pink/10 rounded-3xl -rotate-2"></div>
-                <div class="relative bg-white rounded-3xl p-10 border border-gray-100 shadow-xl text-center md:text-left">
-                    <h3 class="text-2xl serif mb-8">Event Details</h3>
-                    <div class="space-y-8">
-                        <div class="flex items-center md:items-start gap-6">
-                            <div class="hidden md:block text-brand-pink font-bold serif text-xl mt-1">01</div>
-                            <div><p class="font-bold">Sunday, Jan 11, 2026</p><p class="text-sm text-gray-500">Arrival at 1:45 PM for 2:00 PM start</p></div>
-                        </div>
-                        <div class="flex items-center md:items-start gap-6">
-                            <div class="hidden md:block text-brand-pink font-bold serif text-xl mt-1">02</div>
-                            <!-- MAP LINK INTEGRATION -->
-                            <div>
-                                <p class="font-bold">Day2Dream Club, Hyderabad</p>
-                                <a href="https://share.google/SUsFjJof168w2aovg" target="_blank" class="text-sm text-blue-500 hover:underline flex items-center gap-1 justify-center md:justify-start">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                                    View on Google Maps
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="https://share.google/SUsFjJof168w2aovg" target="_blank" class="block w-full mt-10 text-center bg-gray-900 text-white py-4 rounded-xl font-bold hover:bg-brand-pink transition">Get Location Directions</a>
-                </div>
+                <ul class="space-y-6 text-lg text-[#4b5563]">
+                    <li class="flex items-center gap-3">
+                        <span>✨</span> <strong>Basics:</strong> Optimization of immunity and digestion.
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span>⚡</span> <strong>Activize:</strong> Higher energy levels and concentration.
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span>🌙</span> <strong>Restorate:</strong> Faster recovery and better sleep.
+                    </li>
+                </ul>
             </div>
         </section>
 
-        <!-- Offer Section -->
-        <section class="bg-gray-900 py-24 text-center text-white relative">
-            <div class="relative z-10 px-6">
-                <h2 class="text-6xl md:text-8xl font-black mb-4 tracking-tighter" data-aos="zoom-in">20% OFF</h2>
-                <p class="text-gray-400 text-lg mb-10 max-w-md mx-auto italic font-light">Join the membership during the event to unlock exclusive discounts.</p>
-                <button onclick="showPage('register')" class="px-12 py-5 bg-brand-pink rounded-full font-bold hover:scale-110 transition shadow-2xl">CLAIM MY DISCOUNT</button>
+        <!-- SECTION: 20% OFF SECTION -->
+        <section class="bg-[#0f172a] py-28 text-center text-white">
+            <div class="px-6" data-aos="zoom-in">
+                <h2 class="text-7xl md:text-9xl font-bold mb-6 tracking-tight">20% OFF</h2>
+                <p class="text-gray-300 text-xl md:text-2xl mb-12 max-w-2xl mx-auto italic font-light">
+                    Join the membership during the event to unlock exclusive discounts.
+                </p>
+                <button onclick="showPage('register')" class="brand-pink text-white px-14 py-5 rounded-full font-bold text-xl hover:scale-105 transition shadow-2xl uppercase tracking-wider">
+                    Claim My Discount
+                </button>
             </div>
+        </section>
+
+        <!-- VENUE INFO -->
+        <section class="py-20 bg-gray-50 text-center">
+            <h3 class="text-3xl serif mb-4">Location & Time</h3>
+            <p class="text-xl">Day2Dream Club, Hyderabad</p>
+            <p class="text-gray-500 mb-8 font-semibold">Jan 11, 2026 • 2:00 PM</p>
+            <a href="https://share.google/SUsFjJof168w2aovg" target="_blank" class="text-brand-pink font-bold border-b-2 border-brand-pink pb-1">Get Directions on Google Maps</a>
         </section>
     </div>
 
     <!-- PAGE 2: REGISTRATION -->
     <div id="page-register" class="hidden min-h-screen pt-32 pb-20 px-6 bg-gray-50">
         <div class="max-w-2xl mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row">
-            <div class="bg-brand-pink md:w-1/3 p-10 text-white flex flex-col justify-center">
-                <h3 class="text-3xl serif mb-4">You're invited</h3>
-                <p class="text-white/80 text-sm">Submit your details to receive your digital entry pass.</p>
+            <div class="brand-pink md:w-1/3 p-10 text-white flex flex-col justify-center">
+                <h3 class="text-3xl serif mb-4">Digital Entry</h3>
+                <p class="text-white/80 text-sm">Register to generate your unique entry pass. Please take a screenshot once it appears.</p>
             </div>
             <div class="md:w-2/3 p-8 md:p-12">
                 <form id="regForm" class="space-y-5">
-                    <input type="text" id="regName" required placeholder="Full Name" class="w-full p-4 bg-gray-50 border-none rounded-xl focus:ring-2 ring-brand-pink outline-none">
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <input type="email" id="regEmail" required placeholder="Gmail Address" class="w-full p-4 bg-gray-50 border-none rounded-xl focus:ring-2 ring-brand-pink outline-none">
-                        <input type="tel" id="regPhone" required placeholder="WhatsApp No." class="w-full p-4 bg-gray-50 border-none rounded-xl focus:ring-2 ring-brand-pink outline-none">
-                    </div>
-                    <select id="sourceSelect" onchange="toggleReferralField()" class="w-full p-4 bg-gray-50 border-none rounded-xl focus:ring-2 ring-brand-pink outline-none">
+                    <input type="text" id="regName" required placeholder="Full Name" class="w-full p-4 bg-gray-50 border-none rounded-xl focus:ring-2 ring-pink-500 outline-none transition">
+                    <input type="email" id="regEmail" required placeholder="Gmail Address" class="w-full p-4 bg-gray-50 border-none rounded-xl focus:ring-2 ring-pink-500 outline-none transition">
+                    <input type="tel" id="regPhone" required placeholder="WhatsApp No." class="w-full p-4 bg-gray-50 border-none rounded-xl focus:ring-2 ring-pink-500 outline-none transition">
+                    <select id="sourceSelect" onchange="toggleReferralField()" class="w-full p-4 bg-gray-50 border-none rounded-xl focus:ring-2 ring-pink-500 outline-none transition">
                         <option value="Social">Social Media</option>
                         <option value="Referral">I have a Referral Code</option>
                     </select>
                     <div id="referralField" class="hidden">
-                        <input type="text" id="regCode" placeholder="Enter Code (e.g. ALI-ZUB)" class="w-full p-4 border-2 border-dashed border-brand-pink rounded-xl bg-pink-50 outline-none uppercase font-bold text-center">
+                        <input type="text" id="regCode" placeholder="Enter Code" class="w-full p-4 border-2 border-dashed border-pink-300 rounded-xl bg-pink-50 outline-none uppercase font-bold text-center transition">
                     </div>
-                    <button type="submit" class="w-full bg-black text-white py-5 rounded-xl font-bold text-lg hover:bg-brand-pink transition shadow-xl">Complete Registration</button>
+                    <button type="submit" class="w-full bg-black text-white py-5 rounded-xl font-bold text-lg hover:brand-pink transition shadow-xl">Confirm & Generate Ticket</button>
                 </form>
             </div>
         </div>
     </div>
 
-    <!-- ADMIN PANEL -->
-    <div id="page-admin" class="hidden pt-32 pb-20 px-6 bg-gray-100 min-h-screen">
-        <div class="max-w-6xl mx-auto">
-            <div class="flex justify-between items-center mb-10">
-                <h2 class="text-4xl serif">Attendee List</h2>
-                <div class="flex gap-2">
-                    <button onclick="exportToCSV()" class="bg-white border px-4 py-2 rounded text-sm font-bold">Export</button>
-                    <button onclick="location.reload()" class="bg-red-500 text-white px-4 py-2 rounded text-sm font-bold">Logout</button>
+    <!-- TICKET VIEW -->
+    <div id="page-ticket" class="hidden min-h-screen pt-28 pb-10 px-6 flex flex-col items-center bg-gray-100">
+        <div class="text-center mb-6">
+            <h2 class="text-2xl font-bold text-green-600 mb-1">Registration Successful!</h2>
+            <p class="text-gray-500 text-sm">Please take a <strong>Screenshot</strong> now.</p>
+        </div>
+
+        <div class="ticket-card w-full max-w-[360px] border">
+            <div class="brand-pink p-8 text-white text-center">
+                <h3 class="serif text-2xl">FitLine Pass</h3>
+                <p class="text-[10px] tracking-[0.3em] uppercase opacity-80 mt-2">A Journey to Wellness</p>
+            </div>
+            
+            <div class="p-10 pb-24">
+                <div class="mb-8">
+                    <p class="text-[10px] text-gray-400 uppercase font-bold tracking-widest mb-1">Guest Name</p>
+                    <p id="tix-name" class="text-2xl font-bold text-gray-900">John Doe</p>
+                </div>
+
+                <div class="grid grid-cols-2 gap-6 mb-8">
+                    <div>
+                        <p class="text-[10px] text-gray-400 uppercase font-bold tracking-widest mb-1">Event Date</p>
+                        <p class="font-bold text-gray-800">Jan 11, 2026</p>
+                    </div>
+                    <div>
+                        <p class="text-[10px] text-gray-400 uppercase font-bold tracking-widest mb-1">Start Time</p>
+                        <p class="font-bold text-gray-800">2:00 PM</p>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="text-[10px] text-gray-400 uppercase font-bold tracking-widest mb-1">Venue</p>
+                    <p class="font-bold text-gray-800 leading-tight">Day2Dream Club, Hyderabad</p>
                 </div>
             </div>
-            <div class="bg-white rounded-3xl overflow-hidden shadow-xl border border-gray-200">
-                <table class="w-full text-left">
-                    <thead class="bg-gray-50">
-                        <tr>
-                            <th class="p-5 font-bold text-xs uppercase text-gray-400">Name</th>
-                            <th class="p-5 font-bold text-xs uppercase text-gray-400">WhatsApp</th>
-                            <th class="p-5 font-bold text-xs uppercase text-gray-400">Code</th>
-                            <th class="p-5 font-bold text-xs uppercase text-gray-400 text-right">Delete</th>
-                        </tr>
-                    </thead>
-                    <tbody id="adminTableBody" class="divide-y divide-gray-50"></tbody>
-                </table>
+
+            <div class="ticket-cutout cut-left"></div>
+            <div class="ticket-cutout cut-right"></div>
+            <div class="ticket-line"></div>
+
+            <div class="p-10 pt-12 bg-gray-50 text-center">
+                <p class="text-[10px] text-gray-400 uppercase font-bold tracking-widest mb-2">Unique Ticket ID</p>
+                <p id="tix-id" class="text-xl font-mono font-black text-gray-900">FL-2026-XXXX</p>
+                <p class="text-[9px] text-gray-400 mt-6 italic">Show this pass at the entrance for verification.</p>
+            </div>
+        </div>
+
+        <button onclick="location.reload()" class="mt-10 text-gray-400 text-sm hover:underline">← Return to Home</button>
+    </div>
+
+    <!-- ADMIN -->
+    <div id="page-admin" class="hidden pt-32 pb-20 px-6 min-h-screen bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex justify-between items-center mb-10">
+                <h2 class="text-3xl serif">Attendee Management</h2>
+                <div class="flex gap-2">
+                    <button onclick="exportToCSV()" class="bg-gray-100 px-4 py-2 rounded text-xs font-bold hover:bg-gray-200">Export CSV</button>
+                    <button onclick="location.reload()" class="bg-red-500 text-white px-5 py-2 rounded-full text-xs font-bold">Logout</button>
+                </div>
+            </div>
+            <div class="overflow-hidden border rounded-2xl shadow-sm">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left">
+                        <thead class="bg-gray-50 border-b">
+                            <tr>
+                                <th class="p-5 font-bold text-xs uppercase text-gray-400">ID</th>
+                                <th class="p-5 font-bold text-xs uppercase text-gray-400">Name</th>
+                                <th class="p-5 font-bold text-xs uppercase text-gray-400">Gmail</th>
+                                <th class="p-5 font-bold text-xs uppercase text-gray-400">WhatsApp</th>
+                                <th class="p-5 font-bold text-xs uppercase text-gray-400">Referral</th>
+                                <th class="p-5 font-bold text-xs uppercase text-gray-400 text-right">Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody id="adminTableBody" class="divide-y divide-gray-100"></tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
@@ -185,27 +208,24 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 800, once: true });
-
         const ADMIN_PASS = "NutriSecure@2026!";
         const VALID_CODES = { "ALI-ZUB": "Ali Zubair", "ASH-ALI": "Ashfaq Ali" };
 
         function showPage(pageId) {
-            document.getElementById('page-home').classList.add('hidden');
-            document.getElementById('page-register').classList.add('hidden');
-            document.getElementById('page-admin').classList.add('hidden');
+            ['home', 'register', 'admin', 'ticket'].forEach(p => document.getElementById('page-' + p).classList.add('hidden'));
             document.getElementById('page-' + pageId).classList.remove('hidden');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function toggleReferralField() {
             const select = document.getElementById('sourceSelect');
-            const field = document.getElementById('referralField');
-            field.classList.toggle('hidden', select.value !== 'Referral');
+            document.getElementById('referralField').classList.toggle('hidden', select.value !== 'Referral');
         }
 
         document.getElementById('regForm').onsubmit = function(e) {
             e.preventDefault();
             const name = document.getElementById('regName').value;
+            const email = document.getElementById('regEmail').value;
             const phone = document.getElementById('regPhone').value;
             const source = document.getElementById('sourceSelect').value;
             let code = document.getElementById('regCode').value.toUpperCase().trim();
@@ -216,12 +236,16 @@
             }
 
             const attendees = JSON.parse(localStorage.getItem('fitline_rsvp') || "[]");
-            attendees.push({ name, phone, source, code: code || 'N/A', date: new Date().toLocaleDateString() });
+            // Generate ID
+            const tixID = "FL-" + Math.floor(1000 + Math.random() * 9000);
+            // Save ID in the record
+            attendees.push({ tixID, name, email, phone, source, code: code || 'N/A' });
             localStorage.setItem('fitline_rsvp', JSON.stringify(attendees));
 
-            // WhatsApp Ticket
-            const msg = `*EVENT TICKET CONFIRMED*%0A--------------------------%0AAttendee: *${name}*%0AEvent: FitLine Journey to Wellness%0A📅 Date: Jan 11, 2026%0A🕒 Time: 2:00 PM%0A📍 Location: Day2Dream Club%0A%0A*Google Maps Link:* https://share.google/SUsFjJof168w2aovg`;
-            window.location.href = `https://wa.me/${phone.replace(/\D/g,'')}?text=${msg}`;
+            document.getElementById('tix-name').innerText = name;
+            document.getElementById('tix-id').innerText = tixID;
+            
+            showPage('ticket');
         };
 
         function loginAdmin() {
@@ -235,13 +259,15 @@
             const attendees = JSON.parse(localStorage.getItem('fitline_rsvp') || "[]");
             const body = document.getElementById('adminTableBody');
             body.innerHTML = attendees.length ? attendees.reverse().map((a, i) => `
-                <tr class="hover:bg-gray-50">
-                    <td class="p-5 font-bold">${a.name}</td>
-                    <td class="p-5">${a.phone}</td>
-                    <td class="p-5 font-mono text-brand-pink font-bold">${a.code}</td>
-                    <td class="p-5 text-right"><button onclick="deleteEntry(${i})" class="text-red-300 hover:text-red-600">×</button></td>
+                <tr class="hover:bg-gray-50 transition">
+                    <td class="p-5 font-mono text-xs font-bold text-brand-pink">${a.tixID}</td>
+                    <td class="p-5 font-bold text-gray-900">${a.name}</td>
+                    <td class="p-5 text-sm text-gray-500">${a.email}</td>
+                    <td class="p-5 text-sm text-gray-500">${a.phone}</td>
+                    <td class="p-5 font-mono text-xs text-gray-400 font-bold">${a.code}</td>
+                    <td class="p-5 text-right"><button onclick="deleteEntry(${i})" class="text-red-200 hover:text-red-500 transition text-xl">×</button></td>
                 </tr>
-            `).join('') : `<tr><td colspan="4" class="p-20 text-center text-gray-400 italic">No registrations yet.</td></tr>`;
+            `).join('') : `<tr><td colspan="6" class="p-10 text-center text-gray-300 italic">No registrations found.</td></tr>`;
         }
 
         function deleteEntry(i) {
@@ -253,7 +279,9 @@
 
         function exportToCSV() {
             const attendees = JSON.parse(localStorage.getItem('fitline_rsvp') || "[]");
-            let csv = "Name,Phone,Source,Code\n" + attendees.map(a => `${a.name},${a.phone},${a.source},${a.code}`).join("\n");
+            if(attendees.length === 0) return alert("No data to export");
+            let csv = "ID,Name,Email,Phone,Source,Code\n" + 
+                attendees.map(a => `${a.tixID},${a.name},${a.email},${a.phone},${a.source},${a.code}`).join("\n");
             const blob = new Blob([csv], { type: 'text/csv' });
             const url = window.URL.createObjectURL(blob);
             const a = document.createElement('a');
