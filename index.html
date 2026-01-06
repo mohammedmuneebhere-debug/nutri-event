@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitLine Event | A Journey to Wellness</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .serif { font-family: 'Playfair Display', serif; }
+        .brand-pink { background-color: #e9487d; }
+        .text-brand-pink { color: #e9487d; }
+        .hover-lift { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .hover-lift:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(233, 72, 125, 0.2); }
+        .glass-nav { backdrop-filter: blur(10px); background: rgba(255, 255, 255, 0.8); }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+
+    <!-- NAVIGATION -->
+    <nav class="fixed top-0 w-full z-50 glass-nav border-b px-6 py-4 flex justify-between items-center">
+        <div class="flex items-center gap-2 group cursor-pointer">
+            <div class="w-10 h-10 brand-pink rounded-full flex items-center justify-center text-white font-bold transition-transform group-hover:rotate-12">N</div>
+            <span class="text-xl font-bold serif">FitLine Event</span>
+        </div>
+        <div class="flex gap-6 items-center font-semibold">
+            <button onclick="showPage('home')" class="hover:text-brand-pink transition">About</button>
+            <button onclick="showPage('register')" class="brand-pink text-white px-5 py-2 rounded-full hover:opacity-90 transition hover-lift">RSVP Now</button>
+            <button onclick="loginAdmin()" class="text-xs text-gray-400 hover:underline">Admin</button>
+        </div>
+    </nav>
+
+    <!-- PAGE 1: HOME/DESCRIPTION -->
+    <div id="page-home" class="pt-24">
+        <!-- Hero Section -->
+        <header class="relative h-[600px] flex items-center justify-center text-center text-white overflow-hidden">
+            <div class="absolute inset-0 bg-black/40 z-10"></div>
+            <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=1600" class="absolute inset-0 w-full h-full object-cover scale-105 hover:scale-100 transition duration-1000">
+            <div class="relative z-20 px-4">
+                <h1 class="text-6xl md:text-8xl serif mb-6 animate-fade-in">A Journey to Wellness</h1>
+                <p class="text-xl md:text-2xl opacity-90 max-w-2xl mx-auto font-light">Discover the secrets to a healthier, happier you with FitLine’s Optimal Set technology.</p>
+            </div>
+        </header>
+
+        <!-- Image Reference: Limited Seats Banner -->
+        <div class="max-w-5xl mx-auto mt-12 px-6">
+            <div class="bg-[#fff9f0] border border-[#f5e1c4] p-5 rounded-xl flex items-center gap-4 hover-lift">
+                <span class="text-xl">🎟️</span>
+                <div>
+                    <h4 class="text-[#8a6d3b] font-bold">Limited Seats Available!</h4>
+                    <p class="text-[#8a6d3b] text-sm">To ensure a quality experience, we have limited spots. Register as soon as possible to secure your place.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Company Description (Nutriwelike Optimal Set) -->
+        <section class="max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-16 items-center">
+            <div class="hover-lift">
+                <h2 class="text-4xl serif mb-8 border-l-4 border-brand-pink pl-6">The Science of Vitality</h2>
+                <p class="text-gray-600 leading-relaxed text-lg mb-6">
+                    Nutriwelike’s <strong>Optimal Set</strong> provides the ideal foundation for cellular health. Using our patented <strong>NTC (Nutrient Transport Concept)</strong>, nutrients are delivered exactly when and where they are needed—at the cellular level.
+                </p>
+                <ul class="space-y-3 text-gray-700">
+                    <li class="flex items-center gap-2">✨ <strong>Basics:</strong> Optimization of immunity and digestion.</li>
+                    <li class="flex items-center gap-2">⚡ <strong>Activize:</strong> Higher energy levels and concentration.</li>
+                    <li class="flex items-center gap-2">🌙 <strong>Restorate:</strong> Faster recovery and better sleep.</li>
+                </ul>
+            </div>
+            <div class="bg-gray-50 rounded-3xl p-10 border shadow-sm hover-lift">
+                <h3 class="text-2xl serif mb-6">Event Details</h3>
+                <div class="space-y-6">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-pink-100 text-brand-pink rounded-full flex items-center justify-center font-bold italic">D</div>
+                        <div><p class="text-xs text-gray-500 uppercase tracking-widest">Date</p><p class="font-bold">Sunday, Jan 11, 2026</p></div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-pink-100 text-brand-pink rounded-full flex items-center justify-center font-bold italic">T</div>
+                        <div><p class="text-xs text-gray-500 uppercase tracking-widest">Time</p><p class="font-bold">2:00 PM - 4:00 PM</p></div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-pink-100 text-brand-pink rounded-full flex items-center justify-center font-bold italic">L</div>
+                        <div><p class="text-xs text-gray-500 uppercase tracking-widest">Location</p><p class="font-bold">Day2Dream Club, Hyderabad</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Image Reference: 20% OFF Banner -->
+        <section class="bg-[#fceef2] py-20 text-center">
+            <h2 class="text-7xl font-bold text-brand-pink mb-4 hover:scale-105 transition transform cursor-default">20% OFF</h2>
+            <p class="text-gray-600 text-lg mb-8 max-w-md mx-auto">Sign up for membership to enjoy a 20% discount on every FitLine product.</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <button class="px-8 py-3 border border-brand-pink text-brand-pink rounded-md font-bold hover:bg-white transition-all">MEMBER BENEFITS</button>
+                <button onclick="showPage('register')" class="px-8 py-3 brand-pink text-white rounded-md font-bold hover-lift shadow-lg">JOIN MEMBERSHIP</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- PAGE 2: REGISTRATION FORM -->
+    <div id="page-register" class="hidden min-h-screen pt-32 pb-20 px-6 bg-gray-50">
+        <div class="max-w-2xl mx-auto bg-white rounded-2xl shadow-2xl p-8 md:p-12 hover-lift">
+            <div class="text-center mb-10">
+                <h2 class="text-4xl serif mb-2">Register for the workshop</h2>
+                <p class="text-gray-500 italic">Your digital ticket will be sent via WhatsApp.</p>
+            </div>
+
+            <form id="regForm" class="space-y-6">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-semibold mb-2">Full Name</label>
+                        <input type="text" id="regName" required placeholder="Jane Doe" class="w-full p-4 bg-gray-50 border rounded-xl outline-brand-pink transition">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold mb-2">Gmail Address</label>
+                        <input type="email" id="regEmail" required placeholder="jane.doe@gmail.com" class="w-full p-4 bg-gray-50 border rounded-xl outline-brand-pink transition">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold mb-2">WhatsApp Phone Number</label>
+                    <input type="tel" id="regPhone" required placeholder="+91 98765 43210" class="w-full p-4 bg-gray-50 border rounded-xl outline-brand-pink transition">
+                </div>
+
+                <!-- Conditional Referral Logic -->
+                <div>
+                    <label class="block text-sm font-semibold mb-2">How did you hear about us?</label>
+                    <select id="sourceSelect" onchange="toggleReferralField()" class="w-full p-4 bg-gray-50 border rounded-xl outline-brand-pink transition">
+                        <option value="Social">Social Media</option>
+                        <option value="Friends">Friends</option>
+                        <option value="Referral">Referral Code</option>
+                    </select>
+                </div>
+
+                <div id="referralField" class="hidden animate-fade-in">
+                    <div class="bg-pink-50 p-6 rounded-xl border-2 border-dashed border-brand-pink">
+                        <label class="block text-sm font-bold text-brand-pink mb-2 uppercase">Enter Referral Code</label>
+                        <input type="text" id="regCode" placeholder="Enter valid code" class="w-full p-3 border border-pink-200 rounded-lg focus:ring-2 ring-brand-pink outline-none">
+                        <p class="text-[10px] text-pink-400 mt-2">Codes: ALI-ZUB or ASH-ALI</p>
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full brand-pink text-white py-5 rounded-xl font-bold text-xl shadow-xl hover-lift hover:opacity-90">Register Now</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ADMIN PANEL -->
+    <div id="page-admin" class="hidden pt-32 pb-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex justify-between items-end mb-8">
+                <h2 class="text-4xl serif">Attendee List</h2>
+                <button onclick="location.reload()" class="bg-gray-100 px-4 py-2 rounded text-sm hover:bg-gray-200 transition">Logout</button>
+            </div>
+            <div class="bg-white border rounded-2xl overflow-hidden shadow-xl">
+                <table class="w-full text-left">
+                    <thead class="bg-gray-50 border-b">
+                        <tr>
+                            <th class="p-4 font-semibold">Name</th>
+                            <th class="p-4 font-semibold">Gmail</th>
+                            <th class="p-4 font-semibold">WhatsApp</th>
+                            <th class="p-4 font-semibold">Source</th>
+                            <th class="p-4 font-semibold text-brand-pink">Referral Code</th>
+                        </tr>
+                    </thead>
+                    <tbody id="adminTableBody">
+                        <!-- Data populated via JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // CONFIG
+        const ADMIN_PASS = "NutriSecure@2026!";
+        const VALID_CODES = {
+            "ALI-ZUB": "Ali Zubair",
+            "ASH-ALI": "Ashfaq Ali"
+        };
+
+        function showPage(pageId) {
+            ['home', 'register', 'admin'].forEach(p => {
+                document.getElementById('page-' + p).classList.add('hidden');
+            });
+            document.getElementById('page-' + pageId).classList.remove('hidden');
+            window.scrollTo(0,0);
+        }
+
+        function toggleReferralField() {
+            const select = document.getElementById('sourceSelect');
+            const field = document.getElementById('referralField');
+            if (select.value === 'Referral') {
+                field.classList.remove('hidden');
+            } else {
+                field.classList.add('hidden');
+            }
+        }
+
+        document.getElementById('regForm').onsubmit = function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('regName').value;
+            const email = document.getElementById('regEmail').value;
+            const phone = document.getElementById('regPhone').value;
+            const source = document.getElementById('sourceSelect').value;
+            let code = document.getElementById('regCode').value.toUpperCase().trim();
+
+            // Validation for Referral
+            if (source === 'Referral') {
+                if (!VALID_CODES[code]) {
+                    alert("Invalid Referral Code! Please use a code from Ali Zubair or Ashfaq Ali.");
+                    return;
+                }
+            } else {
+                code = "None";
+            }
+
+            // Save Data (Simulated Database)
+            const attendees = JSON.parse(localStorage.getItem('fitline_rsvp') || "[]");
+            attendees.push({ name, email, phone, source, code, date: new Date().toLocaleString() });
+            localStorage.setItem('fitline_rsvp', JSON.stringify(attendees));
+
+            // Redirect to WhatsApp
+            const message = `*EVENT CONFIRMED*%0AHello ${name}, your ticket for the FitLine Workshop is confirmed!%0AEmail: ${email}%0AReferral: ${code}%0ASee you at Day2Dream Club.`;
+            window.location.href = `https://wa.me/${phone.replace(/\D/g,'')}?text=${message}`;
+        };
+
+        function loginAdmin() {
+            const pass = prompt("Enter High-Security Admin Password:");
+            if (pass === ADMIN_PASS) {
+                showPage('admin');
+                renderAdminTable();
+            } else if (pass !== null) {
+                alert("ACCESS DENIED: Incorrect Password.");
+            }
+        }
+
+        function renderAdminTable() {
+            const attendees = JSON.parse(localStorage.getItem('fitline_rsvp') || "[]");
+            const body = document.getElementById('adminTableBody');
+            body.innerHTML = attendees.length ? attendees.map(a => `
+                <tr class="border-b hover:bg-gray-50 transition">
+                    <td class="p-4 font-medium">${a.name}</td>
+                    <td class="p-4 text-gray-500">${a.email}</td>
+                    <td class="p-4">${a.phone}</td>
+                    <td class="p-4"><span class="bg-gray-100 px-2 py-1 rounded text-xs">${a.source}</span></td>
+                    <td class="p-4 font-bold text-brand-pink">${a.code}</td>
+                </tr>
+            `).join('') : `<tr><td colspan="5" class="p-10 text-center text-gray-400 italic">No registrations yet.</td></tr>`;
+        }
+    </script>
+</body>
+</html>
