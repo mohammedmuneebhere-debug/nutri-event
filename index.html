@@ -1,42 +1,53 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FitLine Event | A Journey to Wellness</title>
+    <title>Dare2Dream Event | A Journey to Wellness</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&family=Courier+Prime:wght@700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --brand-green: #1b8a3b;
+            --brand-blue: #004b8d;
+        }
         body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
         .serif { font-family: 'Playfair Display', serif; }
-        .brand-pink { background: #e9487d; } 
-        .text-brand-pink { color: #e9487d; }
-        .glass-nav { backdrop-filter: blur(12px); background: rgba(255, 255, 255, 0.9); z-index: 100; }
-        .hero-gradient { background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); }
+        .mono { font-family: 'Courier Prime', monospace; }
+        .bg-brand-green { background-color: var(--brand-green); }
+        .text-brand-green { color: var(--brand-green); }
+        .bg-brand-blue { background-color: var(--brand-blue); }
+        .text-brand-blue { color: var(--brand-blue); }
         
-        /* Ticket Styling */
-        .ticket-card { background: #fff; border-radius: 20px; overflow: hidden; position: relative; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-        .ticket-cutout { position: absolute; width: 30px; height: 30px; background: #f3f4f6; border-radius: 50%; top: 65%; }
-        .cut-left { left: -15px; } .cut-right { right: -15px; }
-        .ticket-line { position: absolute; top: 67%; left: 5%; right: 5%; border-top: 2px dashed #e5e7eb; }
-
-        /* Science of Vitality accent bar */
-        .title-accent { border-left: 4px solid #e5e7eb; padding-left: 24px; }
+        .glass-nav { backdrop-filter: blur(12px); background: rgba(255, 255, 255, 0.9); z-index: 100; }
+        /* Darker gradient overlay to ensure white text is readable against any image */
+        .hero-gradient { background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.8) 100%); }
+        
+        .ticket-vintage {
+            background: #f4e4bc; 
+            background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+            color: #2d2618;
+            border: 2px solid #d4c391;
+            box-shadow: 10px 10px 0px var(--brand-green);
+        }
+        .ticket-border-right { border-right: 2px dashed #d4c391; }
+        .title-accent { border-left: 5px solid var(--brand-green); padding-left: 24px; }
     </style>
 </head>
 <body class="bg-white text-gray-800">
 
     <!-- NAVIGATION -->
-    <nav class="fixed top-0 w-full glass-nav border-b px-6 py-4 flex justify-between items-center shadow-sm">
-        <div class="flex items-center gap-2 group cursor-pointer" onclick="showPage('home')">
-            <div class="w-10 h-10 brand-pink rounded-xl flex items-center justify-center text-white font-bold shadow-lg">F</div>
-            <span class="text-xl font-bold serif tracking-tight">FitLine <span class="text-brand-pink">Event</span></span>
+    <nav class="fixed top-0 w-full glass-nav border-b px-6 py-2 flex justify-between items-center shadow-sm">
+        <div class="flex items-center gap-3 group cursor-pointer" onclick="showPage('home')">
+            <img src="Screenshot 2026-01-07 160555.png" alt="Dare2Dream Logo" class="h-14">
+            <span class="text-xl font-bold serif tracking-tight hidden md:block">Dare2Dream <span class="text-brand-green">Event</span></span>
         </div>
         <div class="flex gap-4 items-center font-semibold text-sm">
-            <button onclick="showPage('home')" class="hover:text-brand-pink transition">About</button>
-            <button onclick="showPage('register')" class="brand-pink text-white px-6 py-2.5 rounded-full hover:scale-105 transition shadow-md">RSVP Now</button>
-            <button onclick="loginAdmin()" class="p-2 opacity-40 hover:opacity-100 transition">
+            <button onclick="showPage('home')" class="hover:text-brand-green transition">About</button>
+            <button onclick="showPage('register')" class="bg-brand-green text-white px-6 py-2.5 rounded-lg hover:bg-brand-blue transition shadow-md">RSVP Now</button>
+            <button onclick="loginAdmin()" class="p-2 opacity-30 hover:opacity-100 transition">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
             </button>
         </div>
@@ -46,135 +57,149 @@
     <div id="page-home">
         <header class="relative h-[85vh] flex items-center justify-center text-center text-white overflow-hidden pt-20">
             <div class="absolute inset-0 hero-gradient z-10"></div>
-            <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=1600" class="absolute inset-0 w-full h-full object-cover">
-            <div class="relative z-20 px-4 mt-20" data-aos="fade-up">
-                <span class="uppercase tracking-[0.3em] text-xs md:text-sm mb-4 block font-semibold text-pink-300">Hyderabad • Jan 11, 2026</span>
-                <h1 class="text-5xl md:text-8xl serif mb-6 leading-tight">A Journey to <br><span class="italic text-pink-200">Wellness</span></h1>
-                <p class="text-lg md:text-xl opacity-90 max-w-2xl mx-auto font-light mb-8">Experience the future of cellular nutrition and unlock your body's full potential.</p>
-                <button onclick="showPage('register')" class="bg-white text-black px-10 py-4 rounded-full font-bold hover:brand-pink hover:text-white transition-all shadow-2xl">Reserve My Spot</button>
+            <!-- Updated to use background.jpg from your GitHub repo -->
+            <img src="lp.jpg" class="absolute inset-0 w-full h-full object-cover shadow-inner">
+            
+            <div class="relative z-20 px-4 mt-10" data-aos="fade-up">
+                <span class="uppercase tracking-[0.3em] text-xs md:text-sm mb-4 block font-semibold text-green-400">Lakdikapul, Hyderabad • Jan 11, 2026</span>
+                <h1 class="text-5xl md:text-8xl serif mb-6 leading-tight">Dare to <br><span class="italic text-brand-green">Dream</span></h1>
+                <p class="text-lg md:text-xl opacity-90 max-w-2xl mx-auto font-light mb-8 italic">"Where your wellness journey begins."</p>
+                <button onclick="showPage('register')" class="bg-brand-green text-white px-10 py-4 rounded-full font-bold hover:bg-brand-blue transition-all shadow-2xl uppercase tracking-widest">Reserve My Spot</button>
             </div>
         </header>
 
-        <!-- SECTION: THE SCIENCE OF VITALITY -->
+        <!-- SECTION: SCIENCE OF VITALITY -->
         <section class="max-w-5xl mx-auto px-6 py-24">
             <div data-aos="fade-right">
                 <div class="title-accent mb-8">
-                    <h2 class="text-5xl serif text-[#1f2937]">The Science of Vitality</h2>
+                    <h2 class="text-5xl serif text-brand-blue">The Science of Vitality</h2>
                 </div>
                 <p class="text-[#4b5563] leading-relaxed text-xl mb-10 max-w-4xl">
-                    Nutriwelike's <strong>Optimal Set</strong> provides the ideal foundation for cellular health. Using our patented <strong>NTC (Nutrient Transport Concept)</strong>, nutrients are delivered exactly when and where they are needed—at the cellular level.
+                    <strong>Dare2Dream</strong> provides the ideal foundation for cellular health. Using patented <strong>NTC (Nutrient Transport Concept)</strong>, nutrients are delivered exactly when and where they are needed—at the cellular level.
                 </p>
                 <ul class="space-y-6 text-lg text-[#4b5563]">
-                    <li class="flex items-center gap-3">✨ <strong>Basics:</strong> Optimization of immunity and digestion.</li>
-                    <li class="flex items-center gap-3">⚡ <strong>Activize:</strong> Higher energy levels and concentration.</li>
-                    <li class="flex items-center gap-3">🌙 <strong>Restorate:</strong> Faster recovery and better sleep.</li>
+                    <li>✨ <strong>Basics:</strong> Optimization of immunity and digestion.</li>
+                    <li>⚡ <strong>Activize:</strong> Higher energy levels and concentration.</li>
+                    <li>🌙 <strong>Restorate:</strong> Faster recovery and better sleep.</li>
                 </ul>
             </div>
         </section>
 
-        <!-- SECTION: 20% OFF SECTION -->
-        <section class="bg-[#0f172a] py-28 text-center text-white">
+        <!-- SECTION: 20% OFF -->
+        <section class="bg-[#001d35] py-28 text-center text-white">
             <div class="px-6" data-aos="zoom-in">
-                <h2 class="text-7xl md:text-9xl font-bold mb-6 tracking-tight">20% OFF</h2>
-                <p class="text-gray-300 text-xl md:text-2xl mb-12 max-w-2xl mx-auto italic font-light">
-                    Join the membership during the event to unlock exclusive discounts.
-                </p>
-                <button onclick="showPage('register')" class="brand-pink text-white px-14 py-5 rounded-full font-bold text-xl hover:scale-105 transition shadow-2xl uppercase tracking-wider">
-                    Claim My Discount
-                </button>
+                <h2 class="text-7xl md:text-9xl font-bold mb-6 tracking-tight text-brand-green">20% OFF</h2>
+                <p class="text-gray-300 text-xl md:text-2xl mb-12 max-w-2xl mx-auto italic font-light">Join the membership during the event to unlock exclusive discounts.</p>
+                <button onclick="showPage('register')" class="bg-brand-green text-white px-14 py-5 rounded-full font-bold text-xl hover:bg-white hover:text-brand-blue transition shadow-2xl uppercase tracking-wider">Claim My Discount</button>
             </div>
-        </section>
-
-        <!-- VENUE INFO -->
-        <section class="py-20 bg-gray-50 text-center">
-            <h3 class="text-3xl serif mb-4">Location & Time</h3>
-            <p class="text-xl">Day2Dream Club, Hyderabad</p>
-            <p class="text-gray-500 mb-8 font-semibold">Jan 11, 2026 • 2:00 PM</p>
-            <a href="https://share.google/SUsFjJof168w2aovg" target="_blank" class="text-brand-pink font-bold border-b-2 border-brand-pink pb-1">Get Directions on Google Maps</a>
         </section>
     </div>
 
     <!-- PAGE 2: REGISTRATION -->
-    <div id="page-register" class="hidden min-h-screen pt-32 pb-20 px-6 bg-gray-50">
+    <div id="page-register" class="hidden min-h-screen pt-32 pb-20 px-6 bg-gray-100">
         <div class="max-w-2xl mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row">
-            <div class="brand-pink md:w-1/3 p-10 text-white flex flex-col justify-center">
-                <h3 class="text-3xl serif mb-4">Digital Entry</h3>
-                <p class="text-white/80 text-sm">Register to generate your unique entry pass. Please take a screenshot once it appears.</p>
+            <div class="bg-brand-blue md:w-1/3 p-10 text-white flex flex-col justify-center">
+                <h3 class="text-3xl serif mb-4 leading-tight tracking-tight">Secure Entry</h3>
+                <p class="text-white/70 text-sm">Please provide your details. Enter your exclusive referral code below to generate your pass.</p>
             </div>
             <div class="md:w-2/3 p-8 md:p-12">
                 <form id="regForm" class="space-y-5">
-                    <input type="text" id="regName" required placeholder="Full Name" class="w-full p-4 bg-gray-50 border-none rounded-xl focus:ring-2 ring-pink-500 outline-none">
-                    <input type="email" id="regEmail" required placeholder="Gmail Address" class="w-full p-4 bg-gray-50 border-none rounded-xl focus:ring-2 ring-pink-500 outline-none">
-                    <input type="tel" id="regPhone" required placeholder="WhatsApp No." class="w-full p-4 bg-gray-50 border-none rounded-xl focus:ring-2 ring-pink-500 outline-none">
-                    <select id="sourceSelect" onchange="toggleReferralField()" class="w-full p-4 bg-gray-50 border-none rounded-xl focus:ring-2 ring-pink-500 outline-none">
-                        <option value="Social">Social Media</option>
-                        <option value="Referral">I have a Referral Code</option>
-                    </select>
-                    <div id="referralField" class="hidden">
-                        <input type="text" id="regCode" placeholder="Enter Code" class="w-full p-4 border-2 border-dashed border-pink-300 rounded-xl bg-pink-50 outline-none uppercase font-bold text-center">
+                    <input type="text" id="regName" required placeholder="Full Name" class="w-full p-4 bg-gray-50 border rounded-xl outline-none focus:ring-2 ring-brand-green">
+                    <input type="email" id="regEmail" required placeholder="Gmail Address" class="w-full p-4 bg-gray-50 border rounded-xl outline-none focus:ring-2 ring-brand-green">
+                    <input type="tel" id="regPhone" required placeholder="WhatsApp No." class="w-full p-4 bg-gray-50 border rounded-xl outline-none focus:ring-2 ring-brand-green">
+                    
+                    <div>
+                        <label class="text-xs font-bold uppercase text-gray-400 mb-2 block">Exclusive Referral Code</label>
+                        <input type="text" id="regCodeInput" placeholder="ENTER CODE" class="w-full p-4 bg-green-50 border-2 border-dashed border-brand-green rounded-xl outline-none focus:ring-2 ring-brand-blue uppercase font-bold text-center">
                     </div>
-                    <button type="submit" id="submitBtn" class="w-full bg-black text-white py-5 rounded-xl font-bold text-lg hover:brand-pink transition shadow-xl">Confirm & Generate Ticket</button>
+
+                    <button type="submit" id="submitBtn" class="w-full bg-brand-green text-white py-5 rounded-xl font-bold text-lg hover:bg-brand-blue transition shadow-xl">Confirm & Generate Pass</button>
                 </form>
             </div>
         </div>
     </div>
 
-    <!-- PAGE 3: TICKET VIEW -->
-    <div id="page-ticket" class="hidden min-h-screen pt-28 pb-10 px-6 flex flex-col items-center bg-gray-100">
+    <!-- TICKET VIEW -->
+  <!-- TICKET VIEW -->
+    <div id="page-ticket" class="hidden min-h-screen pt-28 pb-10 px-6 flex flex-col items-center bg-gray-200">
         <div class="text-center mb-6">
-            <h2 class="text-2xl font-bold text-green-600 mb-1">Registration Successful!</h2>
-            <p class="text-gray-500 text-sm">Please take a <strong>Screenshot</strong> now.</p>
+            <h2 class="text-2xl font-bold text-green-700 mb-1">Pass Generated!</h2>
+            <p class="text-gray-600 text-sm italic font-semibold">Please take a SCREENSHOT now.</p>
         </div>
 
-        <div class="ticket-card w-full max-w-[360px] border">
-            <div class="brand-pink p-8 text-white text-center">
-                <h3 class="serif text-2xl">FitLine Pass</h3>
-                <p class="text-[10px] tracking-[0.3em] uppercase opacity-80 mt-2">A Journey to Wellness</p>
+        <!-- Redesigned Ticket Container (Slightly wider for better layout) -->
+        <div class="ticket-vintage w-full max-w-[500px] overflow-hidden rounded-sm">
+            <div class="flex">
+                <!-- Main Content Area (Increased Padding) -->
+                <div class="flex-grow p-8 ticket-border-right">
+                    
+                    <!-- Increased Logo Size -->
+                    <div class="flex justify-center mb-8">
+                        <img src="Screenshot 2026-01-07 160555.png" alt="Dare2Dream Logo" class="h-24 object-contain">
+                    </div>
+
+                    <!-- Serial and Entry Pass Label -->
+                    <div class="flex justify-between items-center mb-8 border-b border-black/10 pb-4">
+                        <span id="tix-serial" class="bg-black/10 px-4 py-1.5 rounded text-base font-bold mono">AZ-3</span>
+                        <span class="text-xs font-black tracking-[0.2em] uppercase opacity-70">Free Entry Pass</span>
+                    </div>
+                    
+                    <!-- Venue and Details -->
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div>
+                            <p class="text-[10px] uppercase font-black opacity-50 mb-1">Venue:</p>
+                            <p class="font-bold text-base leading-tight">Dare to Dream Club</p>
+                            <!-- Updated Address -->
+                            <p class="text-xs mt-1 leading-tight">AC Guards, Vijaynagar Colony, Hyderabad</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-[10px] uppercase font-black opacity-50 mb-1">Time & Date:</p>
+                            <p class="font-bold text-base">2:00 PM</p>
+                            <p class="text-xs">11th JAN 2026</p>
+                        </div>
+                    </div>
+
+                    <!-- Bottom Branding -->
+                    <div class="border-t border-dashed border-black/20 pt-4 text-center">
+                        <p class="text-[9px] uppercase tracking-widest opacity-40 italic">Valid for single entry only</p>
+                    </div>
+                </div>
+
+                <!-- Side Strip (Branding) -->
+                <div class="w-16 bg-black/5 flex items-center justify-center p-2">
+                    <p class="rotate-90 whitespace-nowrap text-[11px] font-black tracking-[0.6em] uppercase opacity-20">DARE2DREAM</p>
+                </div>
             </div>
             
-            <div class="p-10 pb-24">
-                <div class="mb-8">
-                    <p class="text-[10px] text-gray-400 uppercase font-bold tracking-widest mb-1">Guest Name</p>
-                    <p id="tix-name" class="text-2xl font-bold text-gray-900">John Doe</p>
-                </div>
-
-                <div class="grid grid-cols-2 gap-6 mb-8">
-                    <div><p class="text-[10px] text-gray-400 uppercase font-bold tracking-widest mb-1">Event Date</p><p class="font-bold text-gray-800">Jan 11, 2026</p></div>
-                    <div><p class="text-[10px] text-gray-400 uppercase font-bold tracking-widest mb-1">Start Time</p><p class="font-bold text-gray-800">2:00 PM</p></div>
-                </div>
-
-                <div><p class="text-[10px] text-gray-400 uppercase font-bold tracking-widest mb-1">Venue</p><p class="font-bold text-gray-800 leading-tight">Day2Dream Club, Hyderabad</p></div>
-            </div>
-
-            <div class="ticket-cutout cut-left"></div><div class="ticket-cutout cut-right"></div><div class="ticket-line"></div>
-
-            <div class="p-10 pt-12 bg-gray-50 text-center">
-                <p class="text-[10px] text-gray-400 uppercase font-bold tracking-widest mb-2">Unique Ticket ID</p>
-                <p id="tix-id" class="text-xl font-mono font-black text-gray-900">FL-2026-XXXX</p>
+            <!-- Guest Name Footer (Darker contrast for clarity) -->
+            <div class="bg-black/10 p-4 text-center border-t-2 border-dashed border-black/10">
+                <p class="text-xs font-bold uppercase tracking-widest">
+                    Guest: <span id="tix-name" class="underline decoration-2 underline-offset-4 ml-2 text-base">ALI ZUBAIR</span>
+                </p>
             </div>
         </div>
-        <button onclick="location.reload()" class="mt-10 text-gray-400 text-sm hover:underline">← Return to Home</button>
+        
+        <button onclick="location.reload()" class="mt-10 text-gray-500 text-sm underline font-bold hover:text-brand-green transition">← Return to Home</button>
     </div>
-
     <!-- ADMIN PANEL -->
     <div id="page-admin" class="hidden pt-32 pb-20 px-6 min-h-screen bg-white">
         <div class="max-w-6xl mx-auto">
             <div class="flex justify-between items-center mb-10">
-                <h2 class="text-3xl serif">Live Registrations</h2>
+                <h2 class="text-3xl serif text-brand-blue font-bold">Dare2Dream Admin Dashboard</h2>
                 <div class="flex gap-2">
-                    <button onclick="exportToCSV()" class="bg-gray-100 px-4 py-2 rounded text-xs font-bold hover:bg-gray-200">Export CSV</button>
-                    <button onclick="location.reload()" class="bg-red-500 text-white px-5 py-2 rounded-full text-xs font-bold">Logout</button>
+                    <button onclick="exportToCSV()" class="bg-gray-100 px-4 py-2 rounded text-xs font-bold">Export CSV</button>
+                    <button onclick="location.reload()" class="bg-red-600 text-white px-5 py-2 rounded-full text-xs font-bold">Logout</button>
                 </div>
             </div>
-            <div class="overflow-hidden border rounded-2xl shadow-sm">
+            <div class="overflow-hidden border rounded-2xl shadow-lg">
                 <div class="overflow-x-auto">
                     <table class="w-full text-left">
                         <thead class="bg-gray-50 border-b">
                             <tr>
-                                <th class="p-5 font-bold text-xs uppercase text-gray-400">ID</th>
+                                <th class="p-5 font-bold text-xs uppercase text-gray-400">Serial No.</th>
                                 <th class="p-5 font-bold text-xs uppercase text-gray-400">Name</th>
                                 <th class="p-5 font-bold text-xs uppercase text-gray-400">Gmail</th>
-                                <th class="p-5 font-bold text-xs uppercase text-gray-400">WhatsApp</th>
+                                <th class="p-5 font-bold text-xs uppercase text-gray-400">Ref Code</th>
                                 <th class="p-5 font-bold text-xs uppercase text-gray-400 text-right">Action</th>
                             </tr>
                         </thead>
@@ -188,66 +213,81 @@
     <!-- FIREBASE SYSTEM -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-        import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, query, orderBy } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+        import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, query, where, orderBy, getCountFromServer } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-        // YOUR ACTUAL FIREBASE CONFIG
         const firebaseConfig = {
-            apiKey: " ",
-            authDomain: " ",
-            projectId: " ",
-            storageBucket: " ",
-            messagingSenderId: " ",
-            appId: " ",
-            measurementId: " "
+            apiKey: "",
+            authDomain: "",
+            projectId: "",
+            storageBucket: "",
+            messagingSenderId: "",
+            appId: "",
+            measurementId: ""
         };
 
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
 
-        // Global Page Nav
+        // EXCLUSIVE CODE MAPPING
+        const CODE_MAP = {
+            "ALI-ZUB": { prefix: "AZ", name: "Ali Zubair" },
+            "SHA-ALI": { prefix: "SA", name: "Shafaq Ali" },
+            "DR-SHA":  { prefix: "DS", name: "Dr Shanaaz" },
+            "MOH-MUN": { prefix: "MM", name: "Mohammed Muneeb" },
+            "MOH-ROU": { prefix: "MR", name: "Mohammed Rouf" },
+            "MOH-MOI": { prefix: "MOM", name: "Mohd Moin" },
+            "AYA-MOH": { prefix: "AM", name: "Ayaan Mohiuddin" }
+        };
+
         window.showPage = (pageId) => {
             ['home', 'register', 'admin', 'ticket'].forEach(p => document.getElementById('page-' + p).classList.add('hidden'));
             document.getElementById('page-' + pageId).classList.remove('hidden');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         };
 
-        window.toggleReferralField = () => {
-            const select = document.getElementById('sourceSelect');
-            document.getElementById('referralField').classList.toggle('hidden', select.value !== 'Referral');
-        };
+        async function getNextSerial(prefix) {
+            const q = query(collection(db, "attendees"), where("codePrefix", "==", prefix));
+            const snapshot = await getCountFromServer(q);
+            return `${prefix}-${snapshot.data().count + 1}`;
+        }
 
-        // Submit Form to Firestore
         document.getElementById('regForm').onsubmit = async function(e) {
             e.preventDefault();
             const submitBtn = document.getElementById('submitBtn');
-            submitBtn.innerText = "Generating Pass...";
+            const inputCode = document.getElementById('regCodeInput').value.trim().toUpperCase();
+            
+            submitBtn.innerText = "Processing...";
             submitBtn.disabled = true;
 
             const name = document.getElementById('regName').value;
             const email = document.getElementById('regEmail').value;
             const phone = document.getElementById('regPhone').value;
-            const source = document.getElementById('sourceSelect').value;
-            let code = document.getElementById('regCode').value.toUpperCase().trim();
-            const tixID = "FL-" + Math.floor(1000 + Math.random() * 9000);
-
+            
+            // Map code to prefix or default to GEN
+            let codeData = CODE_MAP[inputCode] || { prefix: "GEN", name: "General" };
+            
             try {
+                const serialNum = await getNextSerial(codeData.prefix);
                 await addDoc(collection(db, "attendees"), {
-                    tixID, name, email, phone, source, code: code || 'N/A', timestamp: new Date()
+                    serialNum, name, email, phone, 
+                    fullCode: inputCode || "NONE",
+                    codePrefix: codeData.prefix, 
+                    codeMember: codeData.name,
+                    timestamp: new Date()
                 });
 
                 document.getElementById('tix-name').innerText = name;
-                document.getElementById('tix-id').innerText = tixID;
+                document.getElementById('tix-serial').innerText = serialNum;
                 showPage('ticket');
             } catch (err) {
-                alert("Connection error. Try again.");
+                alert("Database connection failed. Please try again.");
                 submitBtn.innerText = "Try Again";
                 submitBtn.disabled = false;
             }
         };
 
-        // Admin Table
-        window.loginAdmin = async () => {
-            if (prompt("Admin Access Code:") === "NutriSecure@2026!") {
+        window.loginAdmin = () => {
+            if (prompt("Enter Admin Access Code:") === "NutriSecure@2026!") {
                 showPage('admin');
                 renderAdminTable();
             }
@@ -255,50 +295,39 @@
 
         window.renderAdminTable = async () => {
             const body = document.getElementById('adminTableBody');
-            body.innerHTML = '<tr><td colspan="5" class="p-10 text-center">Loading live data...</td></tr>';
-            
-            try {
-                const q = query(collection(db, "attendees"), orderBy("timestamp", "desc"));
-                const querySnapshot = await getDocs(q);
-                let rows = "";
-                querySnapshot.forEach((document) => {
-                    const a = document.data();
-                    rows += `
-                        <tr class="hover:bg-gray-50 transition">
-                            <td class="p-5 font-mono text-xs font-bold text-pink-500">${a.tixID}</td>
-                            <td class="p-5 font-bold text-gray-900">${a.name}</td>
-                            <td class="p-5 text-sm text-gray-500">${a.email}</td>
-                            <td class="p-5 text-sm text-gray-500">${a.phone}</td>
-                            <td class="p-5 text-right">
-                                <button onclick="deleteAttendee('${document.id}')" class="text-red-200 hover:text-red-500 transition text-xl">×</button>
-                            </td>
-                        </tr>`;
-                });
-                body.innerHTML = rows || '<tr><td colspan="5" class="p-10 text-center">No registrations yet.</td></tr>';
-            } catch (e) {
-                body.innerHTML = '<tr><td colspan="5" class="p-10 text-center text-red-500">Error loading database.</td></tr>';
-            }
+            body.innerHTML = '<tr><td colspan="5" class="p-10 text-center text-gray-400">Loading data...</td></tr>';
+            const q = query(collection(db, "attendees"), orderBy("timestamp", "desc"));
+            const querySnapshot = await getDocs(q);
+            let rows = "";
+            querySnapshot.forEach((document) => {
+                const a = document.data();
+                rows += `
+                    <tr class="hover:bg-gray-50">
+                        <td class="p-5 font-bold text-brand-green">${a.serialNum}</td>
+                        <td class="p-5 font-bold">${a.name}</td>
+                        <td class="p-5 text-sm text-gray-600">${a.email}</td>
+                        <td class="p-5 text-xs font-black uppercase text-brand-blue">${a.fullCode}</td>
+                        <td class="p-5 text-right"><button onclick="deleteAttendee('${document.id}')" class="text-red-200 hover:text-red-600 text-xl">×</button></td>
+                    </tr>`;
+            });
+            body.innerHTML = rows || '<tr><td colspan="5" class="p-10 text-center">No guests yet.</td></tr>';
         };
 
         window.deleteAttendee = async (id) => {
-            if(confirm("Permanently delete guest?")) {
-                await deleteDoc(doc(db, "attendees", id));
-                renderAdminTable();
-            }
+            if(confirm("Permanently delete this guest?")) { await deleteDoc(doc(db, "attendees", id)); renderAdminTable(); }
         };
 
         window.exportToCSV = async () => {
-            const q = query(collection(db, "attendees"), orderBy("timestamp", "desc"));
-            const querySnapshot = await getDocs(q);
-            let csv = "ID,Name,Email,Phone,Code\n";
+            const querySnapshot = await getDocs(collection(db, "attendees"));
+            let csv = "Serial,Name,Email,Phone,Code,Member\n";
             querySnapshot.forEach(doc => {
                 const a = doc.data();
-                csv += `${a.tixID},${a.name},${a.email},${a.phone},${a.code}\n`;
+                csv += `${a.serialNum},${a.name},${a.email},${a.phone},${a.fullCode},${a.codeMember}\n`;
             });
             const blob = new Blob([csv], { type: 'text/csv' });
             const url = window.URL.createObjectURL(blob);
             const a = document.createElement('a');
-            a.href = url; a.download = 'FitLine_Attendee_List.csv'; a.click();
+            a.href = url; a.download = 'Dare2Dream_Attendees.csv'; a.click();
         };
     </script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
