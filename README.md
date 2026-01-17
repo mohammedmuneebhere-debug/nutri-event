@@ -132,6 +132,9 @@ Analytics and attendee insights dashboard
 Multi-event support
 
 
+Link to the website: https://nutri-event-11.vercel.app/
+
+
 📄 License
 
 This project is licensed under the MIT License.
